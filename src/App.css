@@ -47,15 +47,18 @@ table {
 	border-spacing: 0;
 }
 
+/* CUSTOM STYLES */
+
 html {
   background-color: black;
   min-height:100%;
   display: flex;
   align-content: center;
   justify-content: center;
+  font-family: 'Roboto';
 }
 
-body {
+/* body {
   display: flex;
   align-items: center;
   color: white;
@@ -64,7 +67,7 @@ body {
 .grid {
   display:grid;
   grid-template-columns: repeat(4, 1fr);
-}
+} */
 
 figure {
   position: relative

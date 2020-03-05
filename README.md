@@ -1,6 +1,6 @@
 # Instanews React
 
-Built with React and Material UI components. This project calls the NY Times API to retrive the latest posts based on a users' news category selection.
+Built with React and Material UI components. This project calls the NY Times API to retrieve the latest posts based on a users' news category selection.
 
 Refactored from [this jQuery project](http://redacademy.github.io/instanews/).
 
