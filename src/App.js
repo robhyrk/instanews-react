@@ -40,7 +40,7 @@ function App() {
         </label>
         <p>You selected {state.selection}</p>
       </form>
-      <CardList results={results}/>
+        <CardList results={results}/>
     </div>
   );
 }
