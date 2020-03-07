@@ -53,28 +53,87 @@ html {
   display: flex;
   align-content: center;
   justify-content: center;
+  font-family: 'Roboto'
 }
 
 body {
+  width:100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: white;
 }
 
+#root {
+  width: 100%;
+  height:100%;
+}
+
+.container {
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s linear ;
+}
+
+.headerStay {
+  transition: all 1s linear ;
+  transform: translate(0%, 0%);
+}
+
+.headerMove {
+  transform: translate(0%, 0%);
+  transition: all 1s linear;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.imgGrowOff {
+  width:250px;  
+  transition: all 0.5s linear;
+}
+
+.imgGrowOn {
+  width:40px;
+  transition: all 0.5s linear;
+}
+
+.gridOff {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 1s linear;
+}
+
+.gridOn {
+  opacity:1;
+  height: 100%;
+  transition: all 1s linear;
+}
+
 .grid {
+  grid-column: 1 / 3;
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 }
 
 figure {
-  position: relative
+  position: relative;
 }
 
 figcaption {
   position: absolute;
   height:auto;
   bottom:0%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.66);
   padding:1em;
   width:100%;
   box-sizing: border-box;
@@ -90,4 +149,28 @@ figure img {
   width:100%;
   object-fit: cover;
   height:400px;
+}
+
+select {
+  margin: 50px;
+  width: 150px;
+  padding: 10px 30px 10px 10px;
+  font-size: 16px;
+  border: 1px solid #CCC;
+  height: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: white;
+  background: url(./images/nyt-logo.svg) 96% / 15% no-repeat #000;
+}
+
+@media only screen and (min-width: 480px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    header{
+      flex-direction: row;
+      margin-top: 0%;
+    }
 }

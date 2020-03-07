@@ -6,28 +6,29 @@ import './App.css';
 function App() {
 
   const [state, setState] = useState({
-    selection: 'business'
+    selection: ''
   })
+  const [transition, setTransition] = useState(false)
 
   const [results, setResults] = useState([])
   console.log(state)
   const handleChange = e  => {
     setState({selection: e.target.value})
+    state ? setTransition(true) : setTransition(false)
   }
 
   useEffect( ()=> {
     fetch(`https://api.nytimes.com/svc/topstories/v2/${state.selection}.json?api-key=WGAHEZGJPWfA9djV2CzpQQU35fl90WTT`)
-    .then(response => response.json())
-    .then(results => setResults(results.results))
+      .then(response => response.json())
+      .then(results => setResults(results.results))
   }, [state])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-      <form>
-        <label>
+    <div className="container">
+      <header className={state.selection ? "headerMove" : "headerStay"}>
+        <img className={state.selection ? "imgGrowOn" : "imgGrowOff"} src={logo} 
+ alt="logo" />
+         <label>
           <select value={state.selection} onChange={handleChange}>
             <option value="">Sections ...</option>
             <option value="home">Home</option>
@@ -38,9 +39,10 @@ function App() {
             <option value="fashion">Fashion</option>
           </select>
         </label>
-        <p>You selected {state.selection}</p>
-      </form>
-        <CardList results={results}/>
+      </header>
+      <section className={state.selection ? "gridOn" : "gridOff"}>
+        {state.selection ? <CardList results={results}/> : null}
+      </section>     
     </div>
   );
 }
